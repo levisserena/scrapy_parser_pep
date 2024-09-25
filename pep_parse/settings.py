@@ -8,7 +8,7 @@ NEWSPIDER_MODULE = 'pep_parse.spiders'
 ROBOTSTXT_OBEY = True
 
 FEEDS = {
-    f'./{NAME_FOLDER_SAVING_FILES}/{NAME_FILE_PEP}_%(time)s.csv': {
+    f'{NAME_FOLDER_SAVING_FILES}/{NAME_FILE_PEP}_%(time)s.csv': {
         'format': 'csv',
         'fields': ['number', 'name', 'status'],
         'overwrite': True

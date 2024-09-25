@@ -2,9 +2,10 @@ import csv
 from collections import defaultdict
 from datetime import datetime
 
-from .constants import (FIELD_QUANTITY_SUM_STATUS, FIELD_STATUS_SUM_STATUS,
-                        FOLDER_SAVING_FILES, FORMAT_DATETIME,
-                        NAME_FILE_SUM_STATUS, TOTAL_SUM_STATUS)
+from .constants import (BASE_DIR, FIELD_QUANTITY_SUM_STATUS,
+                        FIELD_STATUS_SUM_STATUS, FORMAT_DATETIME,
+                        NAME_FILE_SUM_STATUS, NAME_FOLDER_SAVING_FILES,
+                        TOTAL_SUM_STATUS)
 
 
 class PepParsePipeline:
@@ -16,6 +17,8 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
+        # FOLDER_SAVING_FILES = BASE_DIR / f'../{NAME_FOLDER_SAVING_FILES}'
+        FOLDER_SAVING_FILES = BASE_DIR / NAME_FOLDER_SAVING_FILES
         FOLDER_SAVING_FILES.mkdir(exist_ok=True)
         with open(
             FOLDER_SAVING_FILES / '{name}_{time}.csv'.format(
