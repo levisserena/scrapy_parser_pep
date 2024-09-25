@@ -4,6 +4,7 @@ import scrapy
 
 from ..items import PepParseItem
 
+
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
