@@ -17,7 +17,6 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        # FOLDER_SAVING_FILES = BASE_DIR / f'../{NAME_FOLDER_SAVING_FILES}'
         FOLDER_SAVING_FILES = BASE_DIR / NAME_FOLDER_SAVING_FILES
         FOLDER_SAVING_FILES.mkdir(exist_ok=True)
         with open(

@@ -1,9 +1,7 @@
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent
 NAME_FOLDER_SAVING_FILES = 'results'
-# FOLDER_SAVING_FILES = (
-#     Path(__file__).parent / f'../{NAME_FOLDER_SAVING_FILES}')
 
 NAME_FILE_PEP = 'pep'
 NAME_FILE_SUM_STATUS = 'status_summary'
