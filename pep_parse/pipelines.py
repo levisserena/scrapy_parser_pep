@@ -3,7 +3,7 @@ from collections import defaultdict
 from datetime import datetime
 
 from .constants import (BASE_DIR, FIELD_QUANTITY_SUM_STATUS,
-                        FIELD_STATUS_SUM_STATUS, FORMAT_DATETIME,
+                        FIELD_STATUS_SUM_STATUS, FORMAT_DATETIME, FORMAT_FILE,
                         NAME_FILE_SUM_STATUS, NAME_FOLDER_SAVING_FILES,
                         TOTAL_SUM_STATUS)
 
@@ -20,9 +20,10 @@ class PepParsePipeline:
         FOLDER_SAVING_FILES = BASE_DIR / NAME_FOLDER_SAVING_FILES
         FOLDER_SAVING_FILES.mkdir(exist_ok=True)
         with open(
-            FOLDER_SAVING_FILES / '{name}_{time}.csv'.format(
+            FOLDER_SAVING_FILES / '{name}_{time}.{format}'.format(
                 name=NAME_FILE_SUM_STATUS,
                 time=datetime.now().strftime(FORMAT_DATETIME),
+                format=FORMAT_FILE,
             ),
             'w', newline='', encoding='utf-8'
         ) as csv_file:

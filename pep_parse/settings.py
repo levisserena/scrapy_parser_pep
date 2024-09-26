@@ -1,19 +1,21 @@
-from .constants import NAME_FILE_PEP, NAME_FOLDER_SAVING_FILES
+from .constants import (CLASS_NAME_PIPELINES, FIELDS, FORMAT_FILE,
+                        NAME_FILE_PEP, NAME_FOLDER_SAVING_FILES,
+                        MODULE_NAME_SPIDERS, PROJECT_NAME)
 
-BOT_NAME = 'pep_parse'
+BOT_NAME = PROJECT_NAME
 
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
+SPIDER_MODULES = [MODULE_NAME_SPIDERS]
+NEWSPIDER_MODULE = MODULE_NAME_SPIDERS
 
 ROBOTSTXT_OBEY = True
 
 FEEDS = {
-    f'{NAME_FOLDER_SAVING_FILES}/{NAME_FILE_PEP}_%(time)s.csv': {
-        'format': 'csv',
-        'fields': ['number', 'name', 'status'],
+    f'{NAME_FOLDER_SAVING_FILES}/{NAME_FILE_PEP}_%(time)s.{FORMAT_FILE}': {
+        'format': FORMAT_FILE,
+        'fields': FIELDS,
         'overwrite': True
     },
 }
 ITEM_PIPELINES = {
-    'pep_parse.pipelines.PepParsePipeline': 300,
+    CLASS_NAME_PIPELINES: 300,
 }

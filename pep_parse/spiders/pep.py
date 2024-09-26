@@ -8,7 +8,9 @@ from ..items import PepParseItem
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    start_urls = [
+        ''.join(['https://', domain, '/']) for domain in allowed_domains
+    ]
 
     def parse(self, response):
         for row in response.xpath(
